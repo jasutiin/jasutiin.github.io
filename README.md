@@ -1,7 +1,3 @@
-<h1 align="center">
-  jasutiin.github.io
-</h1>
-
 <div align="center">
   <h1>jasutiin.github.io</h1>
   <p>My portfolio to showcase my projects B&#41;</p>
