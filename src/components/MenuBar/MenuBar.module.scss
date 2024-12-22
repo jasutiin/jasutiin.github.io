@@ -1,0 +1,53 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  color: azure;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.item {
+  padding: 10px 10px;
+  height: 100%;
+  border-radius: 10px;
+  &:hover {
+    background-color: #3d4452;
+  }
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  border: 1px solid azure;
+  background-color: #3d4452;
+  border-radius: 5%;
+  margin: 0px 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icons {
+  &:hover {
+    background-color: #3d4452;
+  }
+}
+
+.icon {
+  margin: 10px 20px;
+}
