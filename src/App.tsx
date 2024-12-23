@@ -1,12 +1,16 @@
+import MainLayout from './components/MainLayout/MainLayout';
 import MenuBar from './components/MenuBar/MenuBar';
-import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (
-    <>
+    <div
+      style={{
+        height: '100vh',
+      }}
+    >
       <MenuBar />
-      <Sidebar />
-    </>
+      <MainLayout />
+    </div>
   );
 }
 

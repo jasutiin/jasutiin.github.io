@@ -1,13 +1,14 @@
 import ActivityBar from '../ActivityBar/ActivityBar';
 import Explorer from '../Explorer/Explorer';
+import styles from './MainLayout.module.scss';
 
-function Sidebar() {
+function MainLayout() {
   return (
-    <>
+    <div className={styles.container}>
       <ActivityBar />
       <Explorer />
-    </>
+    </div>
   );
 }
 
-export default Sidebar;
+export default MainLayout;

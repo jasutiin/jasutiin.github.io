@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 40px - 20px);
+  width: 5vw;
+  color: azure;
+
+  @media (max-width: 768px) {
+    border-right: 1px solid #202020;
+    width: 50px;
+    height: calc(100vh - 40px);
+  }
+}
+
+.icon {
+  margin: 10px 10px;
+}
