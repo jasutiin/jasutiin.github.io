@@ -1,45 +1,80 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   background-color: #282c34;
   color: azure;
+  width: 100%;
+  min-width: 300px;
+  overflow: hidden;
 }
 
 .left {
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-width: 0;
 }
 
 .right {
   display: flex;
   justify-content: end;
+  flex-direction: row;
   align-items: center;
+  min-width: 0;
+}
+
+.search {
+  display: flex;
+  width: 700px;
+  border: 1px solid azure;
+  border-radius: 10px;
+  justify-content: center;
+  background-color: #3d4452;
+  align-items: center;
+  height: 80%;
+  margin: 0px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .item {
   padding: 10px 10px;
   height: 100%;
   border-radius: 10px;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
   &:hover {
     background-color: #3d4452;
   }
+
+  @media (max-width: 1094px) {
+    display: none;
+  }
+}
+
+.logo {
+  padding: 10px 10px;
+  height: 100%;
+  border-radius: 10px;
 }
 
 .name {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70%;
-  border: 1px solid azure;
-  background-color: #3d4452;
-  border-radius: 5%;
   margin: 0px 10px;
-  &:hover {
-    cursor: pointer;
-  }
+  min-width: 150px;
+  overflow: hidden;
 }
 
 .icons {
@@ -49,5 +84,5 @@
 }
 
 .icon {
-  margin: 10px 20px;
+  margin: 5px 10px;
 }

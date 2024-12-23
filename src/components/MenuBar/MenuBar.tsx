@@ -4,13 +4,13 @@ import { VscChromeMinimize } from 'react-icons/vsc';
 import { VscChromeMaximize } from 'react-icons/vsc';
 import { VscVscode } from 'react-icons/vsc';
 
-const iconSize = 20;
+const iconSize: number = 15;
 
 function MenuBar() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <VscVscode className={styles.item} size={iconSize} />
+        <VscVscode className={styles.logo} size={iconSize} />
         <div className={styles.item}>File</div>
         <div className={styles.item}>Edit</div>
         <div className={styles.item}>Selection</div>
@@ -19,7 +19,9 @@ function MenuBar() {
         <div className={styles.item}>Terminal</div>
         <div className={styles.item}>Help</div>
       </div>
-      <div className={styles.name}>Justine Mangaliman - Visual Studio Code</div>
+      <div className={styles.name}>
+        <div className={styles.search}>Justine Mangaliman</div>
+      </div>
       <div className={styles.right}>
         <div className={styles.icons}>
           <VscChromeMinimize className={styles.icon} size={iconSize} />
