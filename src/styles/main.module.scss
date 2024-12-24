@@ -11,3 +11,28 @@ body,
   padding: 0;
   background-color: #282c34;
 }
+
+.mainLayout {
+  display: flex;
+}
+
+h3 {
+  margin-left: 5px;
+}
+
+a {
+  &:visited {
+    color: azure;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: azure;
+    text-decoration: none;
+  }
+
+  &:link {
+    color: azure;
+    text-decoration: none;
+  }
+}
