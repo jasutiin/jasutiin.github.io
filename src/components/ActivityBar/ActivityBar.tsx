@@ -10,22 +10,16 @@ const iconSize: number = 30;
 function ActivityBar() {
   return (
     <div className={styles.container}>
-      <div className={styles.icon}>
-        <NavLink to="/">
-          <VscFiles size={iconSize} />
-        </NavLink>
-      </div>
-      <div className={styles.icon}>
-        <NavLink to="/projects">
-          <VscCode size={iconSize} />
-        </NavLink>
-      </div>
+      <NavLink to="/" className={styles.icon}>
+        <VscFiles size={iconSize} />
+      </NavLink>
+      <NavLink to="/projects" className={styles.icon}>
+        <VscCode size={iconSize} />
+      </NavLink>
       <div className={styles.bottomIcons}>
-        <div className={styles.icon}>
-          <NavLink to="/about">
-            <VscAccount size={iconSize} />
-          </NavLink>
-        </div>
+        <NavLink to="/about" className={styles.icon}>
+          <VscAccount size={iconSize} />
+        </NavLink>
       </div>
     </div>
   );

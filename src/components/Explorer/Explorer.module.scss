@@ -32,6 +32,11 @@
   }
 }
 
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
 .item {
   padding: 5px 20px;
 

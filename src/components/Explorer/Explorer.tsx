@@ -9,14 +9,16 @@ function Explorer() {
         <VscChevronDown size={20} />
         <h3>Portfolio</h3>
       </div>
-      <div className={styles.item}>
-        <NavLink to="/">home.tsx</NavLink>
-      </div>
-      <div className={styles.item}>
-        <NavLink to="/about">about.html</NavLink>
-      </div>
-      <div className={styles.item}>
-        <NavLink to="/projects">projects.json</NavLink>
+      <div className={styles.items}>
+        <NavLink to="/" className={styles.item}>
+          home.tsx
+        </NavLink>
+        <NavLink to="/about" className={styles.item}>
+          about.html
+        </NavLink>
+        <NavLink to="/projects" className={styles.item}>
+          projects.json
+        </NavLink>
       </div>
     </div>
   );

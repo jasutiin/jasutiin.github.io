@@ -10,7 +10,7 @@ function MenuBar() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <VscVscode className={styles.logo} size={iconSize} />
+        <VscVscode className={styles.logo} size={20} />
         <div className={styles.item}>File</div>
         <div className={styles.item}>Edit</div>
         <div className={styles.item}>Selection</div>
