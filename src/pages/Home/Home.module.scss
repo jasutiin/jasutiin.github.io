@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // border: red 1px solid;
+  height: calc(100vh - 100px);
+  flex: 1;
+  padding: 20px;
+  color: azure;
+  font-size: xx-large;
+}

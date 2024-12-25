@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  flex: 1;
+  padding: 20px;
+  color: azure;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
