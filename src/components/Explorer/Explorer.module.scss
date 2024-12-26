@@ -12,15 +12,14 @@
   height: calc(100vh - 40px - 20px);
   width: 20vw;
   border-right: 1px solid #202020;
-  // border: 1px solid red;
   color: azure;
   padding: 10px;
+
+  @include no-highlight();
 
   @media (max-width: 768px) {
     display: none;
   }
-
-  @include no-highlight();
 }
 
 .header {

@@ -2,10 +2,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // border: red 1px solid;
+  width: calc(75vw - 40px);
   height: calc(100vh - 100px);
   flex: 1;
-  padding: 20px;
   color: azure;
+
+  @media (max-width: 768px) {
+    width: calc(100vw - 70px);
+  }
+}
+
+.content {
+  margin: 20px;
   font-size: xx-large;
+
+  @media (max-width: 768px) {
+    font-size: x-large;
+  }
 }

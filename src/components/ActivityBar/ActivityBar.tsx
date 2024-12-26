@@ -16,11 +16,9 @@ function ActivityBar() {
       <NavLink to="/projects" className={styles.icon}>
         <VscCode size={iconSize} />
       </NavLink>
-      <div className={styles.bottomIcons}>
-        <NavLink to="/about" className={styles.icon}>
-          <VscAccount size={iconSize} />
-        </NavLink>
-      </div>
+      <NavLink to="/about" className={styles.icon}>
+        <VscAccount size={iconSize} />
+      </NavLink>
     </div>
   );
 }
