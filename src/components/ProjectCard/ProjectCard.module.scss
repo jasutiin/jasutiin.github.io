@@ -1,9 +1,11 @@
 .container {
   border-radius: 15px;
   background: #3d4452;
-  width: 300px;
-  margin: 10px;
-  padding: 20px;
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 }
 
 ul {
@@ -12,17 +14,33 @@ ul {
 }
 
 .projectAttribute {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   border: 1px solid red;
   border-radius: 20px;
-  padding: 8px;
+  padding: 5px;
+}
+
+.title {
+  margin-bottom: 5px;
 }
 
 .attributes {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 20px 0px;
+}
+
+.content {
+  margin: 20px;
+}
+
+.image {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.noshow {
+  display: none;
 }
