@@ -9,7 +9,7 @@ function Home() {
           Justine <br />
           Mangaliman
         </h1>
-        <p>Student @ UCalgary</p>
+        <p>BSc CS @ UCalgary</p>
         <Link to="/projects" className={styles.link}>
           See my projects!
         </Link>
