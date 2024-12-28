@@ -27,7 +27,7 @@ const sampleProject3 = {
 const sampleProject4 = {
   uri: [Default],
   name: 'Snake Game',
-  description: 'so cool project very nice',
+  description: 'but better because it was made using...',
   attributes: ['C', 'Raspberry Pi'],
 };
 
@@ -36,7 +36,7 @@ const sampleProject5 = {
   name: 'jasutiin',
   description:
     'I make videos for fun! Mainly focused on computer science content.',
-  attributes: ['TikTok', 'YouTube', 'Davinci Resolve'],
+  attributes: ['TikTok', 'YouTube', 'DaVinci Resolve'],
 };
 
 const projects = [

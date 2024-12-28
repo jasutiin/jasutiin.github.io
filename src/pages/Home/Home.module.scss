@@ -20,3 +20,19 @@
     font-size: x-large;
   }
 }
+
+.link {
+  color: azure;
+  text-decoration: none;
+  font-size: large;
+  margin-top: 10px;
+  margin-right: 10px;
+  word-wrap: break-word;
+  display: inline-block;
+  border-bottom: azure 1px solid;
+
+  &:hover {
+    color: #61dafb;
+    border-bottom: #61dafb 1px solid;
+  }
+}

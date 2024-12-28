@@ -29,7 +29,7 @@ function Layout() {
       <div className={styles.mainLayout}>
         <ActivityBar />
         <Explorer />
-        <div>
+        <div className={styles.editorContainer}>
           <EditorTabs />
           <Outlet />
         </div>

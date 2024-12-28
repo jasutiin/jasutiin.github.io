@@ -16,6 +16,9 @@
   min-width: 300px;
   overflow-x: auto; /* Enable horizontal scrolling */
   @include no-highlight;
+  width: 100%;
+  // border: 1px solid red;
+  overflow-x: scroll;
 }
 
 .item {

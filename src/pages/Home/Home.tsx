@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 
 function Home() {
@@ -8,7 +9,13 @@ function Home() {
           Justine <br />
           Mangaliman
         </h1>
-        <p>Full Stack Web Developer</p>
+        <p>Student @ UCalgary</p>
+        <Link to="/projects" className={styles.link}>
+          See my projects!
+        </Link>
+        <Link to="/about" className={styles.link}>
+          Learn more about me!
+        </Link>
       </div>
     </div>
   );
