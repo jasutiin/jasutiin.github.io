@@ -13,14 +13,20 @@
 }
 
 .icon {
-  margin: 10px auto;
+  padding: 10px 10px;
 
   :hover {
     cursor: pointer;
   }
+}
 
-  @media (max-width: 768px) {
-    margin: 10px 10px;
+.active {
+  padding: 10px 10px;
+  color: #61dafb;
+  border-left: 3px solid #61dafb;
+
+  :hover {
+    cursor: pointer;
   }
 }
 

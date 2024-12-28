@@ -15,11 +15,12 @@ function About() {
           <li>
             i consistently post inconsistently on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
-              tiktok
+              <span className={styles.emph3}>tik</span>
+              <span className={styles.emph2}>tok</span>
             </a>{' '}
             and{' '}
             <a href="https://www.youtube.com/@jasutiin." target="_blank">
-              youtube
+              <span className={styles.emph2}>youtube</span>
             </a>
           </li>
         </ul>

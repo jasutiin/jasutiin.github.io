@@ -29,20 +29,8 @@ h3 {
 }
 
 a {
-  &:visited {
-    color: azure;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: azure;
-    text-decoration: none;
-  }
-
-  &:link {
-    color: azure;
-    text-decoration: none;
-  }
+  text-decoration: none;
+  color: azure;
 }
 
 /* width */
