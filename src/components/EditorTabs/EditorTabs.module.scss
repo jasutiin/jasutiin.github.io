@@ -13,11 +13,8 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   color: azure;
-  min-width: 300px;
-  overflow-x: auto; /* Enable horizontal scrolling */
   @include no-highlight;
   width: 100%;
-  // border: 1px solid red;
   overflow-x: scroll;
 }
 
@@ -26,11 +23,5 @@
 
   &:hover {
     background-color: #3d4452;
-  }
-}
-
-@media (max-width: 420px) {
-  .container {
-    width: 100%;
   }
 }

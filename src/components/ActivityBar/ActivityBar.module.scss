@@ -1,14 +1,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 40px - 20px);
+  height: calc(100dvh - 40px - 20px);
   width: 5vw;
   color: azure;
 
   @media (max-width: 768px) {
     border-right: 1px solid #202020;
     width: auto;
-    height: calc(100vh - 40px);
+    height: calc(100dvh - 40px);
   }
 }
 
