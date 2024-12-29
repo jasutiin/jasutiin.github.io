@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createHashRouter, Outlet, RouterProvider } from 'react-router-dom';
 
 import MenuBar from './components/MenuBar/MenuBar';
 import ActivityBar from './components/ActivityBar/ActivityBar';
@@ -11,7 +11,7 @@ import Projects from './pages/Projects/Projects';
 import styles from './styles/main.module.scss';
 import EditorTabs from './components/EditorTabs/EditorTabs';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <Layout />,
     children: [

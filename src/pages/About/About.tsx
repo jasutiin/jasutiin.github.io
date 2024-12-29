@@ -36,7 +36,7 @@ function About() {
           <li>
             my{' '}
             <a
-              className={styles.emph2}
+              className={styles.emph4}
               href="https://github.com/jasutiin"
               target="_blank"
             >
