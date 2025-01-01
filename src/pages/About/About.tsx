@@ -19,9 +19,8 @@ function About() {
             </a>{' '}
           </li>
           <li>i peaked #~5000 on osu! but i'm washed now</li>
-          <li>i study compsci at the university of calgary</li>
-          <li>i used to play alto sax and clarinet in high school</li>
           <li>my favourite colours are #05472A and #002366</li>
+          <li>i used to play alto sax and clarinet in high school</li>
           <li>
             i consistently post inconsistently on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
