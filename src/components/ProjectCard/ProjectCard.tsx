@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     );
 
     if (containerRef.current) {
