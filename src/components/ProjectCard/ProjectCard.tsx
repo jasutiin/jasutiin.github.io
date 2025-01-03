@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     );
 
     if (containerRef.current) {
-      const elements = containerRef.current.querySelectorAll('h2, p, li');
+      const elements = containerRef.current.querySelectorAll('h2, p, li, img');
       elements.forEach((element) => observer.observe(element));
     }
 
@@ -39,17 +39,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div className={`${styles.container}`} ref={containerRef}>
-      {uris.map((uri, index) =>
-        index === 0 ? (
-          <img className={`${styles.image}`} src={uri} key={uri} />
-        ) : (
-          <img
-            className={`${styles.image} ${styles.noshow}`}
-            src={uri}
-            key={uri}
-          />
-        )
-      )}
+      <div className={styles.imageContainer}>
+        {uris.map((uri, index) =>
+          index === 0 ? (
+            <img className={`${styles.image}`} src={uri} key={uri} />
+          ) : (
+            <img
+              className={`${styles.image} ${styles.noshow}`}
+              src={uri}
+              key={uri}
+            />
+          )
+        )}
+      </div>
       <div className={styles.content}>
         <h2 className={styles.title}>{name}</h2>
         <p>{description}</p>
