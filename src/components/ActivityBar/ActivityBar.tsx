@@ -9,30 +9,40 @@ const iconSize: number = 30;
 
 function ActivityBar() {
   return (
-    <div className={styles.container}>
-      <NavLink
-        to="/"
-        className={({ isActive }) => (isActive ? styles.active : styles.icon)}
-      >
-        <VscFiles size={iconSize} />
-      </NavLink>
-      <NavLink
-        to="/projects"
-        className={({ isActive }) => (isActive ? styles.active : styles.icon)}
-      >
-        <VscCode size={iconSize} />
-      </NavLink>
-      <NavLink
-        to="/about"
-        className={({ isActive }) =>
-          isActive
-            ? `${styles.active} ${styles.bottom}`
-            : `${styles.icon} ${styles.bottom}`
-        }
-      >
-        <VscAccount size={iconSize} />
-      </NavLink>
-    </div>
+    <nav className={styles.container}>
+      <ul className={styles.list}>
+        <li className={styles.item}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.icon
+            }
+          >
+            <VscFiles size={iconSize} />
+          </NavLink>
+        </li>
+        <li className={styles.item}>
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.icon
+            }
+          >
+            <VscCode size={iconSize} />
+          </NavLink>
+        </li>
+        <li className={styles.item}>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.icon
+            }
+          >
+            <VscAccount size={iconSize} />
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 }
 

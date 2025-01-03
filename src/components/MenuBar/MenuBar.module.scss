@@ -1,12 +1,4 @@
-@mixin no-highlight {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
+@use '../../styles/mixins';
 
 .container {
   display: grid;
@@ -17,7 +9,6 @@
   min-width: 300px;
   overflow: hidden;
   height: 40px;
-  @include no-highlight;
 }
 
 .left {
@@ -25,6 +16,7 @@
   flex-direction: row;
   align-items: center;
   min-width: 0;
+  @include mixins.no-highlight;
 }
 
 .right {
@@ -46,10 +38,6 @@
   align-items: center;
   height: 80%;
   margin: 0px;
-
-  * {
-    @include no-highlight;
-  }
 
   &:hover {
     cursor: pointer;

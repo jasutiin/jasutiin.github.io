@@ -7,11 +7,11 @@ function About() {
       <div className={styles.content}>
         <ul className={styles.list}>
           <li>i like to boulder</li>
-          <li className={styles.emph}>i'm a goated programmer</li>
+          <li className={styles.greenText}>i'm a goated programmer</li>
           <li>
             i have 500+ connections on{' '}
             <a
-              className={styles.emph3}
+              className={styles.blueText}
               href="https://www.linkedin.com/in/jmnglmn/"
               target="_blank"
             >
@@ -24,18 +24,18 @@ function About() {
           <li>
             i consistently post inconsistently on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
-              <span className={styles.emph3}>tik</span>
-              <span className={styles.emph2}>tok</span>
+              <span className={styles.redText}>tik</span>
+              <span className={styles.blueText}>tok</span>
             </a>{' '}
             and{' '}
             <a href="https://www.youtube.com/@jasutiin." target="_blank">
-              <span className={styles.emph2}>youtube</span>
+              <span className={styles.redText}>youtube</span>
             </a>
           </li>
           <li>
             my{' '}
             <a
-              className={styles.emph4}
+              className={styles.orangeText}
               href="https://github.com/jasutiin"
               target="_blank"
             >

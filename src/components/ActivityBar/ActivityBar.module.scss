@@ -1,15 +1,30 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 40px - 20px);
-  width: 5vw;
+  height: calc(100dvh - 40px);
+  width: 50px;
   color: azure;
 
   @media (max-width: 768px) {
     border-right: 1px solid #202020;
-    width: auto;
     height: calc(100dvh - 40px);
   }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+
+  // with & it targets the parent if it is the last-child. w/o & it targets its children
+  :last-child {
+    margin-top: auto;
+  }
+}
+
+.item {
+  display: flex;
 }
 
 .icon {
@@ -28,8 +43,4 @@
   :hover {
     cursor: pointer;
   }
-}
-
-.bottom {
-  margin-top: auto;
 }
