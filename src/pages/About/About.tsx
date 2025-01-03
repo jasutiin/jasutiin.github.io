@@ -1,8 +1,32 @@
+import { useRef, useEffect } from 'react';
 import styles from './About.module.scss';
 
 function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(containerRef.current);
+            entry.target.classList.add(styles.animateSide);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      const elements = containerRef.current.querySelectorAll('h1, li');
+      elements.forEach((element) => observer.observe(element));
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <h1 className={styles.title}>About Me</h1>
       <div className={styles.content}>
         <ul className={styles.list}>

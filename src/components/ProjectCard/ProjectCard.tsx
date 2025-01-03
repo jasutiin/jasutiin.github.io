@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+import React from 'react';
 import styles from './ProjectCard.module.scss';
 
 interface ProjectCardProps {
@@ -13,10 +15,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   attributes,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.animateUp);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      const elements = containerRef.current.querySelectorAll('h2, p, li');
+      elements.forEach((element) => observer.observe(element));
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container}`} ref={containerRef}>
       {uris.map((uri, index) =>
-        index == 0 ? (
+        index === 0 ? (
           <img className={`${styles.image}`} src={uri} key={uri} />
         ) : (
           <img
