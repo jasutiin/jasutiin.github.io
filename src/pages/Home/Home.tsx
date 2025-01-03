@@ -6,12 +6,24 @@ function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const headerObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(containerRef.current);
-            entry.target.classList.add(styles.animateSide);
+            console.log('Header observed:', entry.target);
+            entry.target.classList.add(styles.showX);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const itemObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log('Item observed:', entry.target);
+            entry.target.classList.add(styles.showY);
           }
         });
       },
@@ -19,25 +31,34 @@ function Home() {
     );
 
     if (containerRef.current) {
-      const elements = containerRef.current.querySelectorAll('a, h1, p, li');
-      elements.forEach((element) => observer.observe(element));
+      const headers = containerRef.current.querySelectorAll('h1, p');
+      const items = containerRef.current.querySelectorAll('a');
+
+      headers.forEach((header) => headerObserver.observe(header));
+      items.forEach((item) => itemObserver.observe(item));
     }
 
-    return () => observer.disconnect();
+    return () => {
+      headerObserver.disconnect();
+      itemObserver.disconnect();
+    };
   }, []);
 
   return (
     <div className={styles.container} ref={containerRef}>
       <div className={styles.content}>
-        <h1 className={styles.name}>
+        <h1 className={`${styles.name} ${styles.hiddenItemX}`}>
           Justine <br />
           Mangaliman
         </h1>
-        <p>BSc CS @ UCalgary</p>
-        <Link to="/projects" className={styles.link}>
+        <p className={styles.hiddenHeaderX}>BSc CS @ UCalgary</p>
+        <Link to="/projects" className={`${styles.link} ${styles.hiddenSlowY}`}>
           See my projects!
         </Link>
-        <Link to="/about" className={styles.link}>
+        <Link
+          to="/about"
+          className={`${styles.link} ${styles.second} ${styles.hiddenSlowY}`}
+        >
           Learn more about me!
         </Link>
       </div>

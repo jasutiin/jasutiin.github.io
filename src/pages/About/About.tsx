@@ -10,7 +10,7 @@ function About() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             console.log(containerRef.current);
-            entry.target.classList.add(styles.animateSide);
+            entry.target.classList.add(styles.showX);
           }
         });
       },
@@ -27,12 +27,14 @@ function About() {
 
   return (
     <div className={styles.container} ref={containerRef}>
-      <h1 className={styles.title}>About Me</h1>
+      <h1 className={`${styles.title} ${styles.hiddenHeaderX}`}>About Me</h1>
       <div className={styles.content}>
         <ul className={styles.list}>
-          <li>i like to boulder</li>
-          <li className={styles.greenText}>i'm a goated programmer</li>
-          <li>
+          <li className={styles.hiddenItemX}>i like to boulder</li>
+          <li className={`${styles.greenText} ${styles.hiddenItemX}`}>
+            i'm a goated programmer
+          </li>
+          <li className={styles.hiddenItemX}>
             i have 500+ connections on{' '}
             <a
               className={styles.blueText}
@@ -42,10 +44,16 @@ function About() {
               linkedin
             </a>{' '}
           </li>
-          <li>i peaked #~5000 on osu! but i'm washed now</li>
-          <li>my favourite colours are #05472A and #002366</li>
-          <li>i used to play alto sax and clarinet in high school</li>
-          <li>
+          <li className={styles.hiddenItemX}>
+            i peaked #~5000 on osu! but i'm washed now
+          </li>
+          <li className={styles.hiddenItemX}>
+            my favourite colours are #05472A and #002366
+          </li>
+          <li className={styles.hiddenItemX}>
+            i used to play alto sax and clarinet in high school
+          </li>
+          <li className={styles.hiddenItemX}>
             i consistently post inconsistently on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
               <span className={styles.redText}>tik</span>
@@ -56,7 +64,7 @@ function About() {
               <span className={styles.redText}>youtube</span>
             </a>
           </li>
-          <li>
+          <li className={styles.hiddenItemX}>
             my{' '}
             <a
               className={styles.orangeText}
