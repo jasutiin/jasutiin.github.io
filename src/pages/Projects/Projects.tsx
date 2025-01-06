@@ -13,7 +13,7 @@ function Projects() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             console.log(containerRef.current);
-            entry.target.classList.add(styles.animateSide);
+            entry.target.classList.add(styles.showX);
           }
         });
       },
@@ -30,7 +30,7 @@ function Projects() {
 
   return (
     <div className={styles.container} ref={containerRef}>
-      <h1 className={styles.title}>Projects</h1>
+      <h1 className={`${styles.title} ${styles.hiddenHeaderX}`}>Projects</h1>
       <div className={styles.projectsContainer}>
         {projects.map((project) => (
           <ProjectCard

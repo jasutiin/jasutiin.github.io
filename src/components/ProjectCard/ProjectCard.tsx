@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.animateUp);
+            entry.target.classList.add(styles.showY);
           }
         });
       },
@@ -42,7 +42,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className={styles.imageContainer}>
         {uris.map((uri, index) =>
           index === 0 ? (
-            <img className={`${styles.image}`} src={uri} key={uri} />
+            <img
+              className={`${styles.image} ${styles.hiddenY}`}
+              src={uri}
+              key={uri}
+            />
           ) : (
             <img
               className={`${styles.image} ${styles.noshow}`}
@@ -53,11 +57,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
       </div>
       <div className={styles.content}>
-        <h2 className={styles.title}>{name}</h2>
-        <p>{description}</p>
+        <h2 className={`${styles.title} ${styles.hiddenY}`}>{name}</h2>
+        <p className={styles.hiddenY}>{description}</p>
         <ul className={styles.attributes}>
           {attributes.map((attribute) => (
-            <li className={styles.projectAttribute} key={attribute}>
+            <li
+              className={`${styles.projectAttribute} ${styles.hiddenY}`}
+              key={attribute}
+            >
               {attribute}
             </li>
           ))}
