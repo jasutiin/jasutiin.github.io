@@ -28,6 +28,15 @@ ul {
   padding: 5px;
 }
 
+.links {
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  :hover {
+    color: #61dafb;
+  }
+}
+
 .title {
   margin-bottom: 5px;
 }

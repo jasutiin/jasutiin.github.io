@@ -34,7 +34,7 @@ function About() {
           <li className={`${styles.greenText} ${styles.hiddenItemX}`}>
             i'm a goated programmer
           </li>
-          <li className={styles.hiddenItemX}>
+          {/* <li className={styles.hiddenItemX}>
             i have 500+ connections on{' '}
             <a
               className={styles.blueText}
@@ -43,7 +43,7 @@ function About() {
             >
               linkedin
             </a>{' '}
-          </li>
+          </li> */}
           <li className={styles.hiddenItemX}>
             i peaked #~5000 on osu! but i'm washed now
           </li>
@@ -64,7 +64,7 @@ function About() {
               <span className={styles.redText}>youtube</span>
             </a>
           </li>
-          <li className={styles.hiddenItemX}>
+          {/* <li className={styles.hiddenItemX}>
             my{' '}
             <a
               className={styles.orangeText}
@@ -74,7 +74,7 @@ function About() {
               github
             </a>{' '}
             features more projects that i haven't shown here
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

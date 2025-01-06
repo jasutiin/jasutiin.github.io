@@ -9,6 +9,7 @@ const uofcbazaar = {
   name: 'UofCBazaar',
   description: `A platform for students to conveniently buy and sell items. Implements JWT tokens for authentication and authorization, password hashing using bcrypt(), and utilizes Supabase's real-time features.`,
   attributes: ['Typescript', 'React', 'TailwindCSS', 'Deno', 'Supabase'],
+  links: [],
 };
 
 const looply = {
@@ -16,6 +17,7 @@ const looply = {
   name: 'Looply',
   description: `A mobile video sharing platform. Uses AWS S3 for video storage, implements video compression for faster loading times, and incorporates React's Context API to manage settings and such.`,
   attributes: ['Javascript', 'React Native', 'Express', 'MongoDB', 'AWS S3'],
+  links: [['Github', 'https://github.com/jasutiin/looply']],
 };
 
 const pictochat = {
@@ -23,6 +25,7 @@ const pictochat = {
   name: 'Pictochat',
   description: `Based off of <redacted>'s chat app on the DS. Utilizes Socket.IO to implement real-time features. First time trying out Vue!`,
   attributes: ['Typescript', 'Vue'],
+  links: [['Github', 'https://github.com/jasutiin/pictochat']],
 };
 
 const website = {
@@ -31,6 +34,7 @@ const website = {
   description:
     'My personal portfolio to showcase my projects! The design is based off of the GOAT of IDEs (VSCode).',
   attributes: ['Typescript', 'React', 'SASS'],
+  links: [['Github', 'https://github.com/jasutiin/jasutiin.github.io']],
 };
 
 // const swapmeet = {
@@ -46,6 +50,7 @@ const snakegame = {
   description:
     'Made my own controller drivers for the Raspberry Pi. A take on the classic snake game but with enemies and an animated boss fight!',
   attributes: ['C', 'Raspberry Pi'],
+  links: [],
 };
 
 const jasutiin = {
@@ -54,6 +59,10 @@ const jasutiin = {
   description:
     'I make videos for fun! Mainly focused on computer science content.',
   attributes: ['TikTok', 'YouTube', 'DaVinci Resolve'],
+  links: [
+    ['YouTube', 'https://www.youtube.com/@jasutiin.'],
+    ['TikTok', 'https://www.tiktok.com/@jasutiin'],
+  ],
 };
 
 const projects = [uofcbazaar, looply, pictochat, website, snakegame, jasutiin];

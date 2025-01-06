@@ -43,6 +43,23 @@
   }
 }
 
+.noUnderline {
+  border-bottom: none;
+
+  &:hover {
+    color: #61dafb;
+    border-bottom: none;
+  }
+}
+
 .second {
   transition-delay: 100ms;
+}
+
+.third {
+  transition-delay: 200ms;
+}
+
+.fourth {
+  transition-delay: 300ms;
 }

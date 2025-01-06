@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 
+import { FaGithub } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa6';
+
 function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,15 +55,36 @@ function Home() {
           Mangaliman
         </h1>
         <p className={styles.hiddenHeaderX}>BSc CS @ UCalgary</p>
-        <Link to="/projects" className={`${styles.link} ${styles.hiddenSlowY}`}>
-          See my projects!
-        </Link>
-        <Link
-          to="/about"
-          className={`${styles.link} ${styles.second} ${styles.hiddenSlowY}`}
-        >
-          Learn more about me!
-        </Link>
+        <div>
+          <Link
+            to="/projects"
+            className={`${styles.link} ${styles.hiddenSlowY}`}
+          >
+            See my projects!
+          </Link>
+          <Link
+            to="/about"
+            className={`${styles.link} ${styles.second} ${styles.hiddenSlowY}`}
+          >
+            Learn more about me!
+          </Link>
+        </div>
+        <div>
+          <Link
+            to="https://github.com/jasutiin"
+            target="blank"
+            className={`${styles.link} ${styles.noUnderline} ${styles.third} ${styles.hiddenSlowY}`}
+          >
+            <FaGithub size={40} />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/jmnglmn/"
+            target="blank"
+            className={`${styles.link} ${styles.noUnderline} ${styles.fourth} ${styles.hiddenSlowY}`}
+          >
+            <FaLinkedin size={40} />
+          </Link>
+        </div>
       </div>
     </div>
   );

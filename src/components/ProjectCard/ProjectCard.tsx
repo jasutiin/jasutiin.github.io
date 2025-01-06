@@ -1,12 +1,18 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import styles from './ProjectCard.module.scss';
+
+import { FaGithub } from 'react-icons/fa6';
+import { FaYoutube } from 'react-icons/fa6';
+import { FaTiktok } from 'react-icons/fa6';
 
 interface ProjectCardProps {
   uris: string[];
   name: string;
   description: string;
   attributes: string[];
+  links: string[][];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -14,6 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   name,
   description,
   attributes,
+  links,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -66,6 +73,38 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               key={attribute}
             >
               {attribute}
+            </li>
+          ))}
+        </ul>
+        <ul>
+          {links.map((link) => (
+            <li className={`${styles.links} ${styles.hiddenY}`} key={link[1]}>
+              {(() => {
+                switch (link[0]) {
+                  case 'Github':
+                    return (
+                      <Link to={link[1]} target="_blank">
+                        <FaGithub size={40} />
+                      </Link>
+                    );
+                  case 'YouTube':
+                    return (
+                      <Link to={link[1]} target="_blank">
+                        <FaYoutube size={40} />
+                      </Link>
+                    );
+                  case 'TikTok':
+                    return (
+                      <Link to={link[1]} target="_blank">
+                        <FaTiktok size={35} />
+                      </Link>
+                    );
+                  case 'Live':
+                    return <Link to={link[1]} target="_blank"></Link>;
+                  default:
+                    return null;
+                }
+              })()}
             </li>
           ))}
         </ul>
