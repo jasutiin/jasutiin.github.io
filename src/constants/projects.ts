@@ -9,7 +9,7 @@ const uofcbazaar = {
   name: 'UofCBazaar',
   description: `A platform for students to conveniently buy and sell items. Implements JWT tokens for authentication and authorization, password hashing using bcrypt(), and utilizes Supabase's real-time features.`,
   attributes: ['Typescript', 'React', 'TailwindCSS', 'Deno', 'Supabase'],
-  links: [],
+  links: [['Github', 'https://github.com/jasutiin/uofcbazaar']],
 };
 
 const looply = {
