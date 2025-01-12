@@ -22,7 +22,7 @@ const uofcbazaar = {
     'Docker',
     'Git',
   ],
-  links: [],
+  links: [['Github', 'https://github.com/jasutiin/uofcbazaar']],
 };
 
 const looply = {
