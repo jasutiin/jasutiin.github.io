@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import styles from './ProjectCard.module.scss';
 
+import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { FaGithub } from 'react-icons/fa6';
 import { FaYoutube } from 'react-icons/fa6';
 import { FaTiktok } from 'react-icons/fa6';
@@ -46,23 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div className={`${styles.container}`} ref={containerRef}>
-      <div className={styles.imageContainer}>
-        {uris.map((uri, index) =>
-          index === 0 ? (
-            <img
-              className={`${styles.image} ${styles.hiddenY}`}
-              src={uri}
-              key={uri}
-            />
-          ) : (
-            <img
-              className={`${styles.image} ${styles.noshow}`}
-              src={uri}
-              key={uri}
-            />
-          )
-        )}
-      </div>
+      <ImageCarousel uris={uris} />
       <div className={styles.content}>
         <h2 className={`${styles.title} ${styles.hiddenY}`}>{name}</h2>
         <p className={styles.hiddenY}>{description}</p>

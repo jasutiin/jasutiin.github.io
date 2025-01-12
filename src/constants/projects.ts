@@ -2,13 +2,26 @@ import Chat from '../public/projects/uofcbazaar/chat.png';
 import Home from '../public/projects/uofcbazaar/home.png';
 import Login from '../public/projects/uofcbazaar/login.png';
 import Website from '../public/projects/personal-website/projects.png';
+import Title from '../public/projects/snake/title.png';
+import First from '../public/projects/snake/first.png';
+import Connect from '../public/projects/pictochat/connect.png';
+import RoomSelect from '../public/projects/pictochat/roomselect.png';
+import Room from '../public/projects/pictochat/room.png';
 import Default from '../public/default.png';
 
 const uofcbazaar = {
   uri: [Home, Login, Chat],
   name: 'UofCBazaar',
   description: `A platform for students to conveniently buy and sell items. Implements JWT tokens for authentication and authorization, password hashing using bcrypt(), and utilizes Supabase's real-time features.`,
-  attributes: ['Typescript', 'React', 'TailwindCSS', 'Deno', 'Supabase'],
+  attributes: [
+    'TypeScript',
+    'React',
+    'Tailwind CSS',
+    'Deno',
+    'Supabase',
+    'Docker',
+    'Git',
+  ],
   links: [],
 };
 
@@ -16,15 +29,15 @@ const looply = {
   uri: [Default],
   name: 'Looply',
   description: `A mobile video sharing platform. Uses AWS S3 for video storage, implements video compression for faster loading times, and incorporates React's Context API to manage settings and such.`,
-  attributes: ['Javascript', 'React Native', 'Express', 'MongoDB', 'AWS S3'],
+  attributes: ['JavaScript', 'React Native', 'Express', 'MongoDB', 'AWS S3'],
   links: [['Github', 'https://github.com/jasutiin/looply']],
 };
 
 const pictochat = {
-  uri: [Default],
+  uri: [Connect, RoomSelect, Room],
   name: 'Pictochat',
-  description: `Based off of <redacted>'s chat app on the DS. Utilizes Socket.IO to implement real-time features. First time trying out Vue!`,
-  attributes: ['Typescript', 'Vue'],
+  description: `Based off of <redacted>'s chat app on the DS. Utilizes Socket.IO to implement real-time features.`,
+  attributes: ['TypeScript', 'Vue', 'Java', 'Spring Boot', 'PostgreSQL'],
   links: [['Github', 'https://github.com/jasutiin/pictochat']],
 };
 
@@ -33,7 +46,7 @@ const website = {
   name: 'Personal Website',
   description:
     'My personal portfolio to showcase my projects! The design is based off of the GOAT of IDEs (VSCode).',
-  attributes: ['Typescript', 'React', 'SASS'],
+  attributes: ['TypeScript', 'React', 'SASS/SCSS'],
   links: [['Github', 'https://github.com/jasutiin/jasutiin.github.io']],
 };
 
@@ -45,7 +58,7 @@ const website = {
 // };
 
 const snakegame = {
-  uri: [Default],
+  uri: [Title, First],
   name: 'Snake Game',
   description:
     'Made my own controller drivers for the Raspberry Pi. A take on the classic snake game but with enemies and an animated boss fight!',

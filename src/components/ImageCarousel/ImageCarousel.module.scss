@@ -1,0 +1,45 @@
+@use '../../styles/animations';
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #282c34;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  position: relative;
+  border-radius: 15px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 50%;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+    color: #61dafb;
+  }
+}
+
+.button:first-of-type {
+  left: 10px;
+}
+
+.button:last-of-type {
+  right: 10px;
+}
