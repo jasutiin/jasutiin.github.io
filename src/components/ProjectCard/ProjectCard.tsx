@@ -5,8 +5,7 @@ import styles from './ProjectCard.module.scss';
 
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { FaGithub } from 'react-icons/fa6';
-import { FaYoutube } from 'react-icons/fa6';
-import { FaTiktok } from 'react-icons/fa6';
+import { FaGlobe } from 'react-icons/fa6';
 
 interface ProjectCardProps {
   uris: string[];
@@ -72,20 +71,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         <FaGithub size={40} />
                       </Link>
                     );
-                  case 'YouTube':
-                    return (
-                      <Link to={link[1]} target="_blank">
-                        <FaYoutube size={40} />
-                      </Link>
-                    );
-                  case 'TikTok':
-                    return (
-                      <Link to={link[1]} target="_blank">
-                        <FaTiktok size={35} />
-                      </Link>
-                    );
                   case 'Live':
-                    return <Link to={link[1]} target="_blank"></Link>;
+                    return (
+                      <Link to={link[1]} target="_blank">
+                        <FaGlobe size={35} />
+                      </Link>
+                    );
                   default:
                     return null;
                 }
