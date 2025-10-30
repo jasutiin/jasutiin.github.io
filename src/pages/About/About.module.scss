@@ -7,9 +7,12 @@
   height: calc(100dvh - 100px);
   width: calc(75vw - 40px);
   color: azure;
+  overflow-x: hidden;
 
   @media (max-width: 768px) {
-    width: calc(100vw - 70px);
+    width: 100%;
+    padding-right: 30px;
+    box-sizing: border-box;
   }
 }
 
@@ -18,17 +21,17 @@
 }
 
 .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
-  gap: 20px;
-  overflow-y: auto;
   justify-items: start;
   padding: 0px 20px;
+  overflow-y: auto;
+  border-width: 2px;
+  border-color: black;
 
   @media (max-width: 1200px) {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
   }
 }
 

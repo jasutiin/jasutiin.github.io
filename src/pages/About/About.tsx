@@ -18,7 +18,7 @@ function About() {
     );
 
     if (containerRef.current) {
-      const elements = containerRef.current.querySelectorAll('h1, li');
+      const elements = containerRef.current.querySelectorAll('h1, h2, li');
       elements.forEach((element) => observer.observe(element));
     }
 
@@ -29,52 +29,58 @@ function About() {
     <div className={styles.container} ref={containerRef}>
       <h1 className={`${styles.title} ${styles.hiddenHeaderX}`}>About Me</h1>
       <div className={styles.content}>
+        <h2 className={`${styles.title} ${styles.hiddenSubHeaderX}`}>Facts</h2>
         <ul className={styles.list}>
-          <li className={styles.hiddenItemX}>i like to boulder</li>
-          <li className={`${styles.greenText} ${styles.hiddenItemX}`}>
-            i'm a goated programmer
-          </li>
-          {/* <li className={styles.hiddenItemX}>
-            i have 500+ connections on{' '}
-            <a
-              className={styles.blueText}
-              href="https://www.linkedin.com/in/jmnglmn/"
-              target="_blank"
-            >
-              linkedin
-            </a>{' '}
-          </li> */}
           <li className={styles.hiddenItemX}>
-            i peaked #~5000 on osu! but i'm washed now
+            I like to boulder (mainly climb indoor v4-v5)
           </li>
           <li className={styles.hiddenItemX}>
-            my favourite colours are #05472A and #002366
+            I peaked #~5000 on osu! but I'm washed now
           </li>
           <li className={styles.hiddenItemX}>
-            i used to play alto sax and clarinet in high school
+            My favourite colours are #05472A and #002366
           </li>
           <li className={styles.hiddenItemX}>
-            i consistently post inconsistently on{' '}
+            I used to play the alto saxophone and clarinet in high school
+          </li>
+          <li className={styles.hiddenItemX}>
+            I used to post on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
-              <span className={styles.redText}>tik</span>
-              <span className={styles.blueText}>tok</span>
+              <span className={styles.redText}>Tik</span>
+              <span className={styles.blueText}>Tok</span>
             </a>{' '}
             and{' '}
             <a href="https://www.youtube.com/@jasutiin." target="_blank">
-              <span className={styles.redText}>youtube</span>
+              <span className={styles.redText}>YouTube</span>
             </a>
           </li>
-          {/* <li className={styles.hiddenItemX}>
-            my{' '}
-            <a
-              className={styles.orangeText}
-              href="https://github.com/jasutiin"
-              target="_blank"
-            >
-              github
-            </a>{' '}
-            features more projects that i haven't shown here
-          </li> */}
+        </ul>
+
+        <h2 className={`${styles.title} ${styles.hiddenSubHeaderX}`}>
+          Experience
+        </h2>
+        <ul className={styles.list}>
+          <li className={styles.hiddenItemX}>
+            IT Developer Co-op @ <span className={styles.blueText}>CCC</span>
+          </li>
+        </ul>
+
+        <h2 className={`${styles.title} ${styles.hiddenSubHeaderX}`}>
+          Extracurriculars
+        </h2>
+        <ul className={styles.list}>
+          <li className={styles.hiddenItemX}>
+            Mobile and Wearables Developer @{' '}
+            <span className={styles.greenText}>Tech Start</span>
+          </li>
+          <li className={styles.hiddenItemX}>
+            Fullstack Developer @{' '}
+            <span className={styles.redText}>Code the Change</span>
+          </li>
+          <li className={styles.hiddenItemX}>
+            Student Software Developer @{' '}
+            <span className={styles.greenText}>BMERIT</span>
+          </li>
         </ul>
       </div>
     </div>

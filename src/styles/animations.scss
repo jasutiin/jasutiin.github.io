@@ -4,6 +4,12 @@
   transition: all 0.6s;
 }
 
+.hiddenSubHeaderX {
+  opacity: 0%;
+  transform: translateX(-30px);
+  transition: all 0.7s;
+}
+
 .hiddenItemX {
   opacity: 0%;
   transform: translateX(-30px);
