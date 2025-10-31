@@ -46,12 +46,18 @@ function About() {
           <li className={styles.hiddenItemX}>
             I used to post on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
-              <span className={styles.redText}>Tik</span>
-              <span className={styles.blueText}>Tok</span>
+              <span className={styles.redText}>
+                <u>Tik</u>
+              </span>
+              <span className={styles.blueText}>
+                <u>Tok</u>
+              </span>
             </a>{' '}
             and{' '}
             <a href="https://www.youtube.com/@jasutiin." target="_blank">
-              <span className={styles.redText}>YouTube</span>
+              <span className={styles.redText}>
+                <u>YouTube</u>
+              </span>
             </a>
           </li>
         </ul>
@@ -61,7 +67,12 @@ function About() {
         </h2>
         <ul className={styles.list}>
           <li className={styles.hiddenItemX}>
-            IT Developer Co-op @ <span className={styles.blueText}>CCC</span>
+            IT Developer Co-op @{' '}
+            <a href="https://calgarycounselling.com/" target="_blank">
+              <span className={styles.blueText}>
+                <u>CCC</u>
+              </span>
+            </a>
           </li>
         </ul>
 
@@ -71,15 +82,27 @@ function About() {
         <ul className={styles.list}>
           <li className={styles.hiddenItemX}>
             Mobile and Wearables Developer @{' '}
-            <span className={styles.greenText}>Tech Start</span>
+            <a href="https://techstartucalgary.com/" target="_blank">
+              <span className={styles.greenText}>
+                <u>Tech Start</u>
+              </span>
+            </a>
           </li>
           <li className={styles.hiddenItemX}>
             Fullstack Developer @{' '}
-            <span className={styles.redText}>Code the Change</span>
+            <a href="https://www.codethechangeyyc.ca/" target="_blank">
+              <span className={styles.redText}>
+                <u>Code the Change</u>
+              </span>
+            </a>
           </li>
           <li className={styles.hiddenItemX}>
             Student Software Developer @{' '}
-            <span className={styles.greenText}>BMERIT</span>
+            <a href="https://bmerit.vercel.app" target="_blank">
+              <span className={styles.greenText}>
+                <u>BMERIT</u>
+              </span>
+            </a>
           </li>
         </ul>
       </div>
