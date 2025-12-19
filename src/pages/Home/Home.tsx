@@ -1,12 +1,38 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
+import type { SectionId } from '../../App';
 
 import { FaGithub } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
+import { VscChevronDown } from 'react-icons/vsc';
 
-function Home() {
+interface HomeProps {
+  onNavigate: (section: SectionId) => void;
+  setActiveSection: (section: SectionId) => void;
+  scrollY: number;
+}
+
+function Home({ onNavigate, setActiveSection, scrollY }: HomeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection('home');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (containerRef.current) {
+      sectionObserver.observe(containerRef.current);
+    }
+
+    return () => sectionObserver.disconnect();
+  }, [setActiveSection]);
 
   useEffect(() => {
     const headerObserver = new IntersectionObserver(
@@ -35,7 +61,7 @@ function Home() {
 
     if (containerRef.current) {
       const headers = containerRef.current.querySelectorAll('h1, p');
-      const items = containerRef.current.querySelectorAll('a');
+      const items = containerRef.current.querySelectorAll('.animate-item');
 
       headers.forEach((header) => headerObserver.observe(header));
       items.forEach((item) => itemObserver.observe(item));
@@ -56,35 +82,43 @@ function Home() {
         </h1>
         <p className={styles.hiddenHeaderX}>BSc CS @ UCalgary</p>
         <div>
-          <Link
-            to="/projects"
-            className={`${styles.link} ${styles.hiddenSlowY}`}
+          <button
+            onClick={() => onNavigate('projects')}
+            className={`${styles.link} ${styles.hiddenSlowY} animate-item`}
           >
             See my projects!
-          </Link>
-          <Link
-            to="/about"
-            className={`${styles.link} ${styles.second} ${styles.hiddenSlowY}`}
+          </button>
+          <button
+            onClick={() => onNavigate('about')}
+            className={`${styles.link} ${styles.second} ${styles.hiddenSlowY} animate-item`}
           >
             Learn more about me!
-          </Link>
+          </button>
         </div>
         <div>
-          <Link
-            to="https://github.com/jasutiin"
-            target="blank"
-            className={`${styles.link} ${styles.noUnderline} ${styles.third} ${styles.hiddenSlowY}`}
+          <a
+            href="https://github.com/jasutiin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.link} ${styles.noUnderline} ${styles.third} ${styles.hiddenSlowY} animate-item`}
           >
             <FaGithub size={40} />
-          </Link>
-          <Link
-            to="https://www.linkedin.com/in/jmnglmn/"
-            target="blank"
-            className={`${styles.link} ${styles.noUnderline} ${styles.fourth} ${styles.hiddenSlowY}`}
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jmnglmn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.link} ${styles.noUnderline} ${styles.fourth} ${styles.hiddenSlowY} animate-item`}
           >
             <FaLinkedin size={40} />
-          </Link>
+          </a>
         </div>
+      </div>
+      <div
+        className={styles.scrollIndicator}
+        style={{ opacity: Math.max(0, 1 - scrollY / 150) }}
+      >
+        <VscChevronDown size={32} />
       </div>
     </div>
   );

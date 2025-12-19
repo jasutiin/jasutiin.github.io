@@ -1,8 +1,32 @@
 import { useRef, useEffect } from 'react';
 import styles from './About.module.scss';
+import type { SectionId } from '../../App';
 
-function About() {
+interface AboutProps {
+  setActiveSection: (section: SectionId) => void;
+}
+
+function About({ setActiveSection }: AboutProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection('about');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (containerRef.current) {
+      sectionObserver.observe(containerRef.current);
+    }
+
+    return () => sectionObserver.disconnect();
+  }, [setActiveSection]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

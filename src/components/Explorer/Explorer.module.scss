@@ -36,6 +36,13 @@
   padding: 2px 20px;
   text-decoration: none;
   color: inherit;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
 
   &:hover {
     background-color: #3d4452;

@@ -15,6 +15,12 @@ a backup solution for now. */
 
 .item {
   padding: 0px 10px;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 
   &:hover {
     background-color: #3d4452;
@@ -24,5 +30,10 @@ a backup solution for now. */
 .active {
   color: #61dafb;
   padding: 0px 10px;
+  border: none;
   border-bottom: 1px solid #61dafb;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }

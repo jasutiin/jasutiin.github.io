@@ -1,11 +1,35 @@
 import { useRef, useEffect } from 'react';
+import type { SectionId } from '../../App';
 
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import styles from './Projects.module.scss';
 import projects from '../../constants/projects';
 
-function Projects() {
+interface ProjectsProps {
+  setActiveSection: (section: SectionId) => void;
+}
+
+function Projects({ setActiveSection }: ProjectsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection('projects');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (containerRef.current) {
+      sectionObserver.observe(containerRef.current);
+    }
+
+    return () => sectionObserver.disconnect();
+  }, [setActiveSection]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

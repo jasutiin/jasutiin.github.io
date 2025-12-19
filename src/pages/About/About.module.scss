@@ -4,10 +4,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 100px);
   width: calc(75vw - 40px);
   color: azure;
   overflow-x: hidden;
+  padding-bottom: 40px;
 
   @media (max-width: 768px) {
     width: 100%;
