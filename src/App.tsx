@@ -29,7 +29,7 @@ function App() {
   };
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div className={styles.appContainer}>
       <MenuBar />
       <div className={styles.mainLayout}>
         <ActivityBar />
@@ -49,11 +49,11 @@ function App() {
                 setActiveSection={setActiveSection}
               />
             </section>
-            <section ref={projectsRef} id="projects">
-              <Projects setActiveSection={setActiveSection} />
-            </section>
             <section ref={aboutRef} id="about">
               <About setActiveSection={setActiveSection} />
+            </section>
+            <section ref={projectsRef} id="projects">
+              <Projects setActiveSection={setActiveSection} />
             </section>
           </div>
         </div>
