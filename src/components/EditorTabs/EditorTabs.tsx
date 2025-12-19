@@ -1,39 +1,40 @@
 import styles from './EditorTabs.module.scss';
-import { NavLink } from 'react-router-dom';
+import type { SectionId } from '../../App';
 
-function EditorTabs() {
+interface EditorTabsProps {
+  activeSection: SectionId;
+  onSectionClick: (section: SectionId) => void;
+}
+
+function EditorTabs({ activeSection, onSectionClick }: EditorTabsProps) {
   return (
     <nav className={styles.container}>
       <ul className={styles.list}>
         <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.item
-            }
+          <button
+            onClick={() => onSectionClick('home')}
+            className={activeSection === 'home' ? styles.active : styles.item}
           >
             home.tsx
-          </NavLink>
+          </button>
         </li>
         <li>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.item
-            }
+          <button
+            onClick={() => onSectionClick('about')}
+            className={activeSection === 'about' ? styles.active : styles.item}
           >
             about.html
-          </NavLink>
+          </button>
         </li>
         <li>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.item
+          <button
+            onClick={() => onSectionClick('projects')}
+            className={
+              activeSection === 'projects' ? styles.active : styles.item
             }
           >
             projects.json
-          </NavLink>
+          </button>
         </li>
       </ul>
     </nav>

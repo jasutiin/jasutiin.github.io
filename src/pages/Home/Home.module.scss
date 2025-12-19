@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   width: calc(75vw - 40px);
-  height: calc(100dvh - 100px);
+  min-height: calc(100dvh - 100px);
   flex: 1;
   color: azure;
 
@@ -35,7 +35,11 @@
   margin-right: 10px;
   word-wrap: break-word;
   display: inline-block;
+  border: none;
   border-bottom: azure 1px solid;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
 
   &:hover {
     color: #61dafb;

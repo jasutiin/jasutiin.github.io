@@ -1,4 +1,4 @@
-import { createHashRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { useState, useRef } from 'react';
 
 import MenuBar from './components/MenuBar/MenuBar';
 import ActivityBar from './components/ActivityBar/ActivityBar';
@@ -11,42 +11,53 @@ import Projects from './pages/Projects/Projects';
 import styles from './styles/main.module.scss';
 import EditorTabs from './components/EditorTabs/EditorTabs';
 
-const router = createHashRouter([
-  {
-    element: <Layout />,
-    children: [
-      { path: '/', element: <Home /> },
-      { path: '/about', element: <About /> },
-      { path: '/projects', element: <Projects /> },
-      { path: '*', element: <Home /> },
-    ],
-  },
-]);
+export type SectionId = 'home' | 'about' | 'projects';
 
-function Layout() {
+function App() {
+  const [activeSection, setActiveSection] = useState<SectionId>('home');
+  const homeRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (section: SectionId) => {
+    const refs = {
+      home: homeRef,
+      about: aboutRef,
+      projects: projectsRef,
+    };
+    refs[section].current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div>
+    <div style={{ height: '100vh' }}>
       <MenuBar />
       <div className={styles.mainLayout}>
         <ActivityBar />
-        <Explorer />
+        <Explorer
+          activeSection={activeSection}
+          onSectionClick={scrollToSection}
+        />
         <div className={styles.editorContainer}>
-          <EditorTabs />
-          <Outlet />
+          <EditorTabs
+            activeSection={activeSection}
+            onSectionClick={scrollToSection}
+          />
+          <div className={styles.scrollContainer}>
+            <section ref={homeRef} id="home">
+              <Home
+                onNavigate={scrollToSection}
+                setActiveSection={setActiveSection}
+              />
+            </section>
+            <section ref={projectsRef} id="projects">
+              <Projects setActiveSection={setActiveSection} />
+            </section>
+            <section ref={aboutRef} id="about">
+              <About setActiveSection={setActiveSection} />
+            </section>
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <div
-      style={{
-        height: '100vh',
-      }}
-    >
-      <RouterProvider router={router} />
     </div>
   );
 }
