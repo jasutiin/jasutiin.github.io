@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
   width: calc(75vw - 40px);
   min-height: calc(100dvh - 80px);
   flex: 1;
@@ -66,4 +67,23 @@
 
 .fourth {
   transition-delay: 300ms;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: azure;
+  animation: bounce 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
 }

@@ -15,6 +15,7 @@ export type SectionId = 'home' | 'about' | 'projects';
 
 function App() {
   const [activeSection, setActiveSection] = useState<SectionId>('home');
+  const [scrollY, setScrollY] = useState(0);
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,10 @@ function App() {
       projects: projectsRef,
     };
     refs[section].current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    setScrollY(e.currentTarget.scrollTop);
   };
 
   return (
@@ -42,11 +47,12 @@ function App() {
             activeSection={activeSection}
             onSectionClick={scrollToSection}
           />
-          <div className={styles.scrollContainer}>
+          <div className={styles.scrollContainer} onScroll={handleScroll}>
             <section ref={homeRef} id="home">
               <Home
                 onNavigate={scrollToSection}
                 setActiveSection={setActiveSection}
+                scrollY={scrollY}
               />
             </section>
             <section ref={aboutRef} id="about">

@@ -4,13 +4,15 @@ import type { SectionId } from '../../App';
 
 import { FaGithub } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
+import { VscChevronDown } from 'react-icons/vsc';
 
 interface HomeProps {
   onNavigate: (section: SectionId) => void;
   setActiveSection: (section: SectionId) => void;
+  scrollY: number;
 }
 
-function Home({ onNavigate, setActiveSection }: HomeProps) {
+function Home({ onNavigate, setActiveSection, scrollY }: HomeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -111,6 +113,12 @@ function Home({ onNavigate, setActiveSection }: HomeProps) {
             <FaLinkedin size={40} />
           </a>
         </div>
+      </div>
+      <div
+        className={styles.scrollIndicator}
+        style={{ opacity: Math.max(0, 1 - scrollY / 150) }}
+      >
+        <VscChevronDown size={32} />
       </div>
     </div>
   );
