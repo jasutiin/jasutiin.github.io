@@ -37,7 +37,10 @@ function App() {
     <div className={styles.appContainer}>
       <MenuBar />
       <div className={styles.mainLayout}>
-        <ActivityBar />
+        <ActivityBar
+          activeSection={activeSection}
+          onSectionClick={scrollToSection}
+        />
         <Explorer
           activeSection={activeSection}
           onSectionClick={scrollToSection}

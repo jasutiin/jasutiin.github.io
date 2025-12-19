@@ -1,45 +1,47 @@
 import styles from './ActivityBar.module.scss';
-import { NavLink } from 'react-router-dom';
 
 import { VscFiles } from 'react-icons/vsc';
 import { VscCode } from 'react-icons/vsc';
 import { VscAccount } from 'react-icons/vsc';
 
+import type { SectionId } from '../../App';
+
 const iconSize: number = 30;
 
-function ActivityBar() {
+interface ActivityBarProps {
+  activeSection: SectionId;
+  onSectionClick: (section: SectionId) => void;
+}
+
+function ActivityBar({ activeSection, onSectionClick }: ActivityBarProps) {
   return (
     <nav className={styles.container}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.icon
-            }
+          <button
+            className={activeSection === 'home' ? styles.active : styles.icon}
+            onClick={() => onSectionClick('home')}
           >
             <VscFiles size={iconSize} />
-          </NavLink>
+          </button>
         </li>
         <li className={styles.item}>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.icon
+          <button
+            className={
+              activeSection === 'projects' ? styles.active : styles.icon
             }
+            onClick={() => onSectionClick('projects')}
           >
             <VscCode size={iconSize} />
-          </NavLink>
+          </button>
         </li>
         <li className={styles.item}>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.icon
-            }
+          <button
+            className={activeSection === 'about' ? styles.active : styles.icon}
+            onClick={() => onSectionClick('about')}
           >
             <VscAccount size={iconSize} />
-          </NavLink>
+          </button>
         </li>
       </ul>
     </nav>
