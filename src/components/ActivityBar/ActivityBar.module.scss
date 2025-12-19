@@ -29,6 +29,9 @@
 
 .icon {
   padding: 10px 10px;
+  background: none;
+  border: none;
+  color: inherit;
 
   :hover {
     cursor: pointer;
@@ -37,6 +40,8 @@
 
 .active {
   padding: 10px 10px;
+  background: none;
+  border: none;
   color: #61dafb;
   border-left: 3px solid #61dafb;
 
