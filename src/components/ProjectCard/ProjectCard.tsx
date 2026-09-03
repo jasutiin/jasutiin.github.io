@@ -49,41 +49,45 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <ImageCarousel uris={uris} />
       <div className={styles.content}>
         <h2 className={`${styles.title} ${styles.hiddenY}`}>{name}</h2>
-        <p className={styles.hiddenY}>{description}</p>
-        <ul className={styles.attributes}>
-          {attributes.map((attribute) => (
-            <li
-              className={`${styles.projectAttribute} ${styles.hiddenY}`}
-              key={attribute}
-            >
-              {attribute}
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {links.map((link) => (
-            <li className={`${styles.links} ${styles.hiddenY}`} key={link[1]}>
-              {(() => {
-                switch (link[0]) {
-                  case 'Github':
-                    return (
-                      <Link to={link[1]} target="_blank">
-                        <FaGithub size={40} />
-                      </Link>
-                    );
-                  case 'Live':
-                    return (
-                      <Link to={link[1]} target="_blank">
-                        <FaGlobe size={35} />
-                      </Link>
-                    );
-                  default:
-                    return null;
-                }
-              })()}
-            </li>
-          ))}
-        </ul>
+        {description && <p className={styles.hiddenY}>{description}</p>}
+        {attributes.length > 0 && (
+          <ul className={styles.attributes}>
+            {attributes.map((attribute) => (
+              <li
+                className={`${styles.projectAttribute} ${styles.hiddenY}`}
+                key={attribute}
+              >
+                {attribute}
+              </li>
+            ))}
+          </ul>
+        )}
+        {links.length > 0 && (
+          <ul>
+            {links.map((link) => (
+              <li className={`${styles.links} ${styles.hiddenY}`} key={link[1]}>
+                {(() => {
+                  switch (link[0]) {
+                    case 'Github':
+                      return (
+                        <Link to={link[1]} target="_blank">
+                          <FaGithub size={40} />
+                        </Link>
+                      );
+                    case 'Live':
+                      return (
+                        <Link to={link[1]} target="_blank">
+                          <FaGlobe size={35} />
+                        </Link>
+                      );
+                    default:
+                      return null;
+                  }
+                })()}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

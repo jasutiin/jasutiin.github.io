@@ -45,6 +45,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ uris }) => {
     };
   }, []);
 
+  if (uris.length === 0) {
+    return null;
+  }
+
   return (
     <div className={styles.carousel} ref={carouselRef}>
       {uris.length > 1 && (
