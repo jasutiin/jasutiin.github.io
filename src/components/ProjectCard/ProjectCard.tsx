@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './ProjectCard.module.scss';
 
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
-import { FaGithub } from 'react-icons/fa6';
+import { FaArrowUpRightFromSquare, FaGithub } from 'react-icons/fa6';
 import { FaGlobe } from 'react-icons/fa6';
 
 interface ProjectCardProps {
@@ -13,6 +13,7 @@ interface ProjectCardProps {
   description: string;
   attributes: string[];
   links: string[][];
+  projectPath?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -21,6 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   attributes,
   links,
+  projectPath,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +50,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className={`${styles.container}`} ref={containerRef}>
       <ImageCarousel uris={uris} />
       <div className={styles.content}>
-        <h2 className={`${styles.title} ${styles.hiddenY}`}>{name}</h2>
+        <h2 className={`${styles.title} ${styles.hiddenY}`}>
+          {projectPath ? (
+            <Link className={styles.projectLink} to={projectPath}>
+              {name}
+              <FaArrowUpRightFromSquare aria-hidden="true" size={16} />
+            </Link>
+          ) : (
+            name
+          )}
+        </h2>
         {description && <p className={styles.hiddenY}>{description}</p>}
         {attributes.length > 0 && (
           <ul className={styles.attributes}>

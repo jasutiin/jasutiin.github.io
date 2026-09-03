@@ -1,0 +1,77 @@
+@use '../../styles/variables';
+
+.container {
+  box-sizing: border-box;
+  color: variables.$text;
+  min-height: 100%;
+  padding: 32px 40px 56px;
+  width: min(900px, 100%);
+
+  @media (max-width: 768px) {
+    padding: 24px 20px 40px;
+  }
+}
+
+.backLink {
+  color: variables.$text-muted;
+  display: inline-block;
+  margin-bottom: 28px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: variables.$accent;
+  }
+}
+
+.project {
+  background: variables.$surface;
+  border: 1px solid variables.$border;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 28px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 12px;
+}
+
+.description {
+  color: variables.$text-muted;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.image {
+  border-radius: 10px;
+  display: block;
+  margin-top: 24px;
+  max-height: 440px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.content {
+  line-height: 1.75;
+  margin-top: 24px;
+  white-space: pre-line;
+}
+
+.githubLink {
+  align-items: center;
+  color: variables.$text;
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 28px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: variables.$accent;
+  }
+}

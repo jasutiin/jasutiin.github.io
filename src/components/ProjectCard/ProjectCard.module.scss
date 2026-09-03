@@ -41,6 +41,20 @@ ul {
   margin-bottom: 5px;
 }
 
+.projectLink {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: 8px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: #5fa8e6;
+  }
+}
+
 .attributes {
   display: flex;
   flex-direction: row;

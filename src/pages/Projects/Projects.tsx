@@ -3,7 +3,11 @@ import type { SectionId } from '../../App';
 
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import styles from './Projects.module.scss';
-import { getProjects, type SanityProject } from '../../sanity/projects';
+import {
+  getProjectSlug,
+  getProjects,
+  type SanityProject,
+} from '../../sanity/projects';
 
 interface ProjectsProps {
   setActiveSection: (section: SectionId) => void;
@@ -95,6 +99,7 @@ function Projects({ setActiveSection }: ProjectsProps) {
               description={project.description ?? ''}
               attributes={[]}
               links={[]}
+              projectPath={`/project/${getProjectSlug(project)}`}
             />
           ))
         )}

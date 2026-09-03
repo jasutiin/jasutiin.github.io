@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 
 import MenuBar from './components/MenuBar/MenuBar';
 import ActivityBar from './components/ActivityBar/ActivityBar';
@@ -7,6 +8,7 @@ import Explorer from './components/Explorer/Explorer';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Projects from './pages/Projects/Projects';
+import Project from './pages/Project/Project';
 
 import styles from './styles/main.module.scss';
 import EditorTabs from './components/EditorTabs/EditorTabs';
@@ -14,6 +16,7 @@ import EditorTabs from './components/EditorTabs/EditorTabs';
 export type SectionId = 'home' | 'about' | 'projects';
 
 function App() {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<SectionId>('home');
   const [scrollY, setScrollY] = useState(0);
   const homeRef = useRef<HTMLDivElement>(null);
@@ -33,6 +36,15 @@ function App() {
     setScrollY(e.currentTarget.scrollTop);
   };
 
+  useEffect(() => {
+    const redirectedPath = window.sessionStorage.getItem('redirectPath');
+
+    if (redirectedPath) {
+      window.sessionStorage.removeItem('redirectPath');
+      navigate(redirectedPath, { replace: true });
+    }
+  }, [navigate]);
+
   return (
     <div className={styles.appContainer}>
       <MenuBar />
@@ -51,19 +63,30 @@ function App() {
             onSectionClick={scrollToSection}
           />
           <div className={styles.scrollContainer} onScroll={handleScroll}>
-            <section ref={homeRef} id="home">
-              <Home
-                onNavigate={scrollToSection}
-                setActiveSection={setActiveSection}
-                scrollY={scrollY}
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <section ref={homeRef} id="home">
+                      <Home
+                        onNavigate={scrollToSection}
+                        setActiveSection={setActiveSection}
+                        scrollY={scrollY}
+                      />
+                    </section>
+                    <section ref={aboutRef} id="about">
+                      <About setActiveSection={setActiveSection} />
+                    </section>
+                    <section ref={projectsRef} id="projects">
+                      <Projects setActiveSection={setActiveSection} />
+                    </section>
+                  </>
+                }
               />
-            </section>
-            <section ref={aboutRef} id="about">
-              <About setActiveSection={setActiveSection} />
-            </section>
-            <section ref={projectsRef} id="projects">
-              <Projects setActiveSection={setActiveSection} />
-            </section>
+              <Route path="/project/:slug" element={<Project />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
           </div>
         </div>
       </div>
