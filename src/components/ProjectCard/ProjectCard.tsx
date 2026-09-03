@@ -61,19 +61,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ) : (
             name
           )}
-          {githubUrl && (
-            <a
-              className={styles.githubLink}
-              href={githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`View ${name} on GitHub`}
-            >
-              <FaGithub aria-hidden="true" size={21} />
-            </a>
-          )}
         </h2>
         {description && <p className={styles.hiddenY}>{description}</p>}
+        {githubUrl && (
+          <a
+            className={styles.githubLink}
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`View ${name} on GitHub`}
+          >
+            <FaGithub aria-hidden="true" size={21} />
+          </a>
+        )}
         {attributes.length > 0 && (
           <ul className={styles.attributes}>
             {attributes.map((attribute) => (

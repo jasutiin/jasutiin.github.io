@@ -60,7 +60,9 @@ ul {
 
 .githubLink {
   color: inherit;
-  display: inline-flex;
+  display: flex;
+  margin-top: 12px;
+  width: fit-content;
 
   &:hover {
     color: #5fa8e6;
