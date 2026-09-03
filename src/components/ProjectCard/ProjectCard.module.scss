@@ -2,7 +2,7 @@
 
 .container {
   border-radius: 15px;
-  background: #3d4452;
+  background: #1b1e24;
   width: 100%;
 
   @media (max-width: 1200px) {
@@ -11,7 +11,7 @@
 }
 
 .imageContainer {
-  background: #282c34;
+  background: #101216;
   border-radius: 15px;
 }
 
@@ -23,7 +23,7 @@ ul {
 .projectAttribute {
   margin-right: 10px;
   margin-bottom: 10px;
-  border: 1px solid azure;
+  border: 1px solid #c7ccd6;
   border-radius: 20px;
   padding: 5px;
 }
@@ -33,7 +33,7 @@ ul {
   margin-bottom: 10px;
 
   :hover {
-    color: #61dafb;
+    color: #5fa8e6;
   }
 }
 

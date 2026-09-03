@@ -62,9 +62,6 @@ function About({ setActiveSection }: AboutProps) {
             I peaked #~5000 on osu! but I'm washed now
           </li>
           <li className={styles.hiddenItemX}>
-            My favourite colours are #05472A and #002366
-          </li>
-          <li className={styles.hiddenItemX}>
             I used to play the alto saxophone and clarinet in high school
           </li>
           <li className={styles.hiddenItemX}>
@@ -91,6 +88,14 @@ function About({ setActiveSection }: AboutProps) {
         </h2>
         <ul className={styles.list}>
           <li className={styles.hiddenItemX}>
+            Data Modelling Intern @{' '}
+            <a href="https://www.aeso.ca/" target="_blank" rel="noreferrer">
+              <span className={styles.blueText}>
+                <u>AESO</u>
+              </span>
+            </a>
+          </li>
+          <li className={styles.hiddenItemX}>
             IT Developer Co-op @{' '}
             <a href="https://calgarycounselling.com/" target="_blank">
               <span className={styles.blueText}>
@@ -105,7 +110,7 @@ function About({ setActiveSection }: AboutProps) {
         </h2>
         <ul className={styles.list}>
           <li className={styles.hiddenItemX}>
-            Mobile and Wearables Developer @{' '}
+            Software Developer @{' '}
             <a href="https://techstartucalgary.com/" target="_blank">
               <span className={styles.greenText}>
                 <u>Tech Start</u>
@@ -121,7 +126,7 @@ function About({ setActiveSection }: AboutProps) {
             </a>
           </li>
           <li className={styles.hiddenItemX}>
-            Student Software Developer @{' '}
+            Software Developer @{' '}
             <a href="https://bmerit.vercel.app" target="_blank">
               <span className={styles.greenText}>
                 <u>BMERIT</u>

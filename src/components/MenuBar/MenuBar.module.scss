@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  color: azure;
+  color: #c7ccd6;
   width: 100%;
   min-width: 300px;
   overflow: hidden;
@@ -31,10 +31,10 @@
 .search {
   display: flex;
   width: 700px;
-  border: 1px solid azure;
+  border: 1px solid #c7ccd6;
   border-radius: 10px;
   justify-content: center;
-  background-color: #3d4452;
+  background-color: #1b1e24;
   align-items: center;
   height: 80%;
   margin: 0px;
@@ -50,7 +50,7 @@
   border-radius: 10px;
 
   &:hover {
-    background-color: #3d4452;
+    background-color: #1b1e24;
   }
 
   @media (max-width: 1094px) {
@@ -80,7 +80,7 @@
   justify-content: center;
   width: 40px;
   &:hover {
-    background-color: #3d4452;
+    background-color: #1b1e24;
   }
 }
 

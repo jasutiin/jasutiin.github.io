@@ -2,7 +2,7 @@
   display: flex;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  color: azure;
+  color: #c7ccd6;
   width: 100%;
   overflow-x: scroll;
 }
@@ -23,15 +23,15 @@ a backup solution for now. */
   cursor: pointer;
 
   &:hover {
-    background-color: #3d4452;
+    background-color: #1b1e24;
   }
 }
 
 .active {
-  color: #61dafb;
+  color: #5fa8e6;
   padding: 0px 10px;
   border: none;
-  border-bottom: 1px solid #61dafb;
+  border-bottom: 1px solid #5fa8e6;
   background: none;
   font-family: inherit;
   font-size: inherit;

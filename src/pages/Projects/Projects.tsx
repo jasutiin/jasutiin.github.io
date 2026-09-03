@@ -56,16 +56,20 @@ function Projects({ setActiveSection }: ProjectsProps) {
     <div className={styles.container} ref={containerRef}>
       <h1 className={`${styles.title} ${styles.hiddenHeaderX}`}>Projects</h1>
       <div className={styles.projectsContainer}>
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.name}
-            uris={project.uri}
-            name={project.name}
-            description={project.description}
-            attributes={project.attributes}
-            links={project.links}
-          />
-        ))}
+        {projects.length === 0 ? (
+          <p className={styles.emptyState}>Coming soon!</p>
+        ) : (
+          projects.map((project) => (
+            <ProjectCard
+              key={project.name}
+              uris={project.uri}
+              name={project.name}
+              description={project.description}
+              attributes={project.attributes}
+              links={project.links}
+            />
+          ))
+        )}
       </div>
     </div>
   );
