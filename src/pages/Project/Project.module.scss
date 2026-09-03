@@ -1,3 +1,4 @@
+@use '../../styles/animations';
 @use '../../styles/variables';
 
 .container {
@@ -30,6 +31,7 @@
 
 .titleRow {
   align-items: center;
+  transition-delay: 50ms;
   display: flex;
   gap: 14px;
   margin-bottom: 12px;
@@ -50,12 +52,14 @@
 
 .description {
   color: variables.$text-muted;
+  transition-delay: 100ms;
   font-size: 1.05rem;
   line-height: 1.65;
 }
 
 .image {
   border-radius: 10px;
+  transition-delay: 150ms;
   display: block;
   margin-top: 24px;
   max-height: 440px;
@@ -65,6 +69,7 @@
 
 .content {
   line-height: 1.75;
+  transition-delay: 200ms;
   margin-top: 24px;
   white-space: pre-line;
 }

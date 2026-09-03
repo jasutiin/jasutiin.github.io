@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaGithub } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import styles from './Project.module.scss';
 
 function Project() {
   const { slug } = useParams();
+  const containerRef = useRef<HTMLElement>(null);
   const [project, setProject] = useState<SanityProject | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasLoadError, setHasLoadError] = useState(false);
@@ -46,6 +47,30 @@ function Project() {
     };
   }, [slug]);
 
+  useEffect(() => {
+    if (!project || !containerRef.current) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.showX);
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    const elements = containerRef.current.querySelectorAll(
+      '[data-project-animate]'
+    );
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [project]);
+
   if (isLoading) {
     return <main className={styles.container}>Loading project...</main>;
   }
@@ -70,13 +95,20 @@ function Project() {
   }
 
   return (
-    <main className={styles.container}>
-      <Link className={styles.backLink} to="/">
+    <main className={styles.container} ref={containerRef}>
+      <Link
+        className={`${styles.backLink} ${styles.hiddenItemX}`}
+        data-project-animate
+        to="/"
+      >
         ← Back to projects
       </Link>
 
       <article className={styles.project}>
-        <div className={styles.titleRow}>
+        <div
+          className={`${styles.titleRow} ${styles.hiddenItemX}`}
+          data-project-animate
+        >
           <h1 className={styles.title}>{project.title}</h1>
           {project.githubUrl && (
             <a
@@ -91,16 +123,29 @@ function Project() {
           )}
         </div>
         {project.description && (
-          <p className={styles.description}>{project.description}</p>
+          <p
+            className={`${styles.description} ${styles.hiddenItemX}`}
+            data-project-animate
+          >
+            {project.description}
+          </p>
         )}
         {project.cardImageUrl && (
           <img
-            className={styles.image}
+            className={`${styles.image} ${styles.hiddenItemX}`}
+            data-project-animate
             src={project.cardImageUrl}
             alt={project.title}
           />
         )}
-        {project.content && <p className={styles.content}>{project.content}</p>}
+        {project.content && (
+          <p
+            className={`${styles.content} ${styles.hiddenItemX}`}
+            data-project-animate
+          >
+            {project.content}
+          </p>
+        )}
       </article>
     </main>
   );
