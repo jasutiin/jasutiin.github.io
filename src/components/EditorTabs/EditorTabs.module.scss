@@ -1,39 +1,50 @@
 .container {
-  display: flex;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
   color: #c7ccd6;
+  overflow-x: auto;
   width: 100%;
-  overflow-x: scroll;
 }
 
-/* i don't know how this works but this is just
-a backup solution for now. */
 .list {
-  height: 20px;
+  display: flex;
+  min-width: max-content;
 }
 
-.item {
-  padding: 0px 10px;
-  background: none;
-  border: none;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
+.tab {
+  align-items: center;
+  display: flex;
+  position: relative;
 
   &:hover {
     background-color: #1b1e24;
   }
 }
 
+.item,
 .active {
-  color: #5fa8e6;
-  padding: 0px 10px;
-  border: none;
-  border-bottom: 1px solid #5fa8e6;
   background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
   font-family: inherit;
   font-size: inherit;
+  padding: 5px 4px 5px 10px;
+}
+
+.active {
+  border-bottom: 1px solid #5fa8e6;
+  color: #5fa8e6;
+}
+
+.closeButton {
+  align-items: center;
+  background: none;
+  border: none;
+  color: inherit;
   cursor: pointer;
+  display: inline-flex;
+  padding: 5px 10px 5px 6px;
+
+  &:hover {
+    color: #5fa8e6;
+  }
 }

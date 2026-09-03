@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 
 import MenuBar from './components/MenuBar/MenuBar';
 import ActivityBar from './components/ActivityBar/ActivityBar';
@@ -12,24 +18,51 @@ import Project from './pages/Project/Project';
 
 import styles from './styles/main.module.scss';
 import EditorTabs from './components/EditorTabs/EditorTabs';
+import {
+  getProjectBySlug,
+  getProjectSlug,
+  type SanityProject,
+} from './sanity/projects';
 
 export type SectionId = 'home' | 'about' | 'projects';
 
 function App() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<SectionId>('home');
+  const [activeProject, setActiveProject] = useState<SanityProject | null>(null);
+  const [pendingSection, setPendingSection] = useState<SectionId | null>(null);
   const [scrollY, setScrollY] = useState(0);
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (section: SectionId) => {
+    setActiveSection(section);
+
+    if (location.pathname !== '/') {
+      setPendingSection(section);
+      navigate('/');
+      return;
+    }
+
     const refs = {
       home: homeRef,
       about: aboutRef,
       projects: projectsRef,
     };
     refs[section].current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openProject = (project: SanityProject) => {
+    setActiveProject(project);
+    setActiveSection('projects');
+    navigate(`/project/${getProjectSlug(project)}`);
+  };
+
+  const closeProject = () => {
+    setActiveProject(null);
+    navigate('/');
   };
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -45,6 +78,45 @@ function App() {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    if (location.pathname === '/') {
+      if (pendingSection) {
+        const refs = {
+          home: homeRef,
+          about: aboutRef,
+          projects: projectsRef,
+        };
+        refs[pendingSection].current?.scrollIntoView({ behavior: 'smooth' });
+        setPendingSection(null);
+      }
+      return;
+    }
+
+    const slug = location.pathname.split('/')[2];
+    if (!slug) {
+      return;
+    }
+
+    let isCurrent = true;
+    setActiveSection('projects');
+
+    getProjectBySlug(slug)
+      .then((project) => {
+        if (isCurrent) {
+          setActiveProject(project);
+        }
+      })
+      .catch(() => {
+        if (isCurrent) {
+          setActiveProject(null);
+        }
+      });
+
+    return () => {
+      isCurrent = false;
+    };
+  }, [location.pathname, pendingSection]);
+
   return (
     <div className={styles.appContainer}>
       <MenuBar />
@@ -54,12 +126,26 @@ function App() {
           onSectionClick={scrollToSection}
         />
         <Explorer
+          activeProjectSlug={
+            location.pathname.startsWith('/project/') && activeProject
+              ? getProjectSlug(activeProject)
+              : undefined
+          }
           activeSection={activeSection}
+          onProjectClick={openProject}
           onSectionClick={scrollToSection}
         />
         <div className={styles.editorContainer}>
           <EditorTabs
+            activeProject={activeProject}
             activeSection={activeSection}
+            isProjectActive={location.pathname.startsWith('/project/')}
+            onProjectClick={() => {
+              if (activeProject) {
+                navigate(`/project/${getProjectSlug(activeProject)}`);
+              }
+            }}
+            onProjectClose={closeProject}
             onSectionClick={scrollToSection}
           />
           <div className={styles.scrollContainer} onScroll={handleScroll}>
