@@ -56,7 +56,20 @@ function About({ setActiveSection }: AboutProps) {
         <h2 className={`${styles.title} ${styles.hiddenSubHeaderX}`}>Facts</h2>
         <ul className={styles.list}>
           <li className={styles.hiddenItemX}>
-            I like to boulder (mainly climb indoor v4-v5)
+            I like to go bouldering! My peak grade is a C6 at{' '}
+            <a
+              href="https://www.calgaryclimbing.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className={styles.yellowText}>
+                <u>CCC</u>
+              </span>
+            </a>
+            .
+          </li>
+          <li className={styles.hiddenItemX}>
+            I dislocated my shoulder the day I got my first C6 :(
           </li>
           <li className={styles.hiddenItemX}>
             I peaked #~5000 on osu! but I'm washed now
@@ -65,7 +78,7 @@ function About({ setActiveSection }: AboutProps) {
             I used to play the alto saxophone and clarinet in high school
           </li>
           <li className={styles.hiddenItemX}>
-            I used to post on{' '}
+            I post very very very very infrequently on{' '}
             <a href="https://www.tiktok.com/@jasutiin" target="_blank">
               <span className={styles.redText}>
                 <u>Tik</u>
@@ -96,7 +109,7 @@ function About({ setActiveSection }: AboutProps) {
             </a>
           </li>
           <li className={styles.hiddenItemX}>
-            IT Developer Co-op @{' '}
+            Software Developer Co-op @{' '}
             <a href="https://calgarycounselling.com/" target="_blank">
               <span className={styles.blueText}>
                 <u>CCC</u>
