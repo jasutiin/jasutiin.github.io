@@ -100,6 +100,7 @@ function Projects({ setActiveSection }: ProjectsProps) {
               attributes={[]}
               links={[]}
               projectPath={`/project/${getProjectSlug(project)}`}
+              githubUrl={project.githubUrl}
             />
           ))
         )}

@@ -38,6 +38,9 @@ ul {
 }
 
 .title {
+  align-items: center;
+  display: flex;
+  gap: 10px;
   margin-bottom: 5px;
 }
 
@@ -49,6 +52,15 @@ ul {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+
+  &:hover {
+    color: #5fa8e6;
+  }
+}
+
+.githubLink {
+  color: inherit;
+  display: inline-flex;
 
   &:hover {
     color: #5fa8e6;

@@ -76,7 +76,20 @@ function Project() {
       </Link>
 
       <article className={styles.project}>
-        <h1 className={styles.title}>{project.title}</h1>
+        <div className={styles.titleRow}>
+          <h1 className={styles.title}>{project.title}</h1>
+          {project.githubUrl && (
+            <a
+              className={styles.githubLink}
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View ${project.title} on GitHub`}
+            >
+              <FaGithub aria-hidden="true" size={26} />
+            </a>
+          )}
+        </div>
         {project.description && (
           <p className={styles.description}>{project.description}</p>
         )}
@@ -88,17 +101,6 @@ function Project() {
           />
         )}
         {project.content && <p className={styles.content}>{project.content}</p>}
-        {project.githubUrl && (
-          <a
-            className={styles.githubLink}
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaGithub aria-hidden="true" size={22} />
-            View on GitHub
-          </a>
-        )}
       </article>
     </main>
   );

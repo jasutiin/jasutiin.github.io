@@ -14,6 +14,7 @@ interface ProjectCardProps {
   attributes: string[];
   links: string[][];
   projectPath?: string;
+  githubUrl?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -23,6 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   attributes,
   links,
   projectPath,
+  githubUrl,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -58,6 +60,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </Link>
           ) : (
             name
+          )}
+          {githubUrl && (
+            <a
+              className={styles.githubLink}
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View ${name} on GitHub`}
+            >
+              <FaGithub aria-hidden="true" size={21} />
+            </a>
           )}
         </h2>
         {description && <p className={styles.hiddenY}>{description}</p>}
