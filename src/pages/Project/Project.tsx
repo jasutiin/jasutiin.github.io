@@ -1,12 +1,50 @@
 import { useEffect, useRef, useState } from 'react';
+import {
+  PortableText,
+  type PortableTextComponents,
+} from '@portabletext/react';
 import { FaGithub, FaLink } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
 
 import {
   getProjectBySlug,
+  type ProjectImageBlock,
   type SanityProject,
 } from '../../sanity/projects';
 import styles from './Project.module.scss';
+
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => (
+      <p className={styles.contentParagraph}>{children}</p>
+    ),
+  },
+  types: {
+    image: ({ value }) => {
+      const image = value as ProjectImageBlock;
+
+      if (!image.url) {
+        return null;
+      }
+
+      return (
+        <figure className={styles.contentFigure}>
+          <img
+            alt={image.alt ?? ''}
+            className={styles.contentImage}
+            loading="lazy"
+            src={image.url}
+          />
+          {image.caption && (
+            <figcaption className={styles.imageCaption}>
+              {image.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
+  },
+};
 
 const dateFormatter = new Intl.DateTimeFormat('en-CA', {
   day: 'numeric',
@@ -154,13 +192,16 @@ function Project() {
             alt={project.title}
           />
         )}
-        {project.content && (
-          <p
+        {project.content && project.content.length > 0 && (
+          <div
             className={`${styles.content} ${styles.hiddenItemX}`}
             data-project-animate
           >
-            {project.content}
-          </p>
+            <PortableText
+              components={portableTextComponents}
+              value={project.content}
+            />
+          </div>
         )}
         {project.resources && project.resources.length > 0 && (
           <footer className={styles.resources}>

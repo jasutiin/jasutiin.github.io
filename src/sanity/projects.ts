@@ -1,3 +1,4 @@
+import type { ArbitraryTypedObject, PortableTextBlock } from '@portabletext/types';
 import { defineQuery } from 'groq';
 
 import { sanityClient } from './client';
@@ -9,12 +10,20 @@ export interface ProjectResource {
   description?: string;
 }
 
+export interface ProjectImageBlock extends ArbitraryTypedObject {
+  _key: string;
+  _type: 'image';
+  alt?: string;
+  caption?: string;
+  url?: string;
+}
+
 export interface SanityProject {
   _id: string;
   title: string;
   slug?: string;
   description?: string;
-  content?: string;
+  content?: Array<PortableTextBlock | ProjectImageBlock>;
   githubUrl?: string;
   cardImageUrl?: string;
   publishedAt: string;
@@ -33,7 +42,12 @@ const projectSummaryFields = /* groq */ `
 
 const projectDetailFields = /* groq */ `
   ${projectSummaryFields},
-  "content": pt::text(content),
+  content[] {
+    ...,
+    _type == "image" => {
+      "url": asset->url
+    }
+  },
   "resources": coalesce(footerLinks, resources, furtherReading)[] {
     _key,
     title,

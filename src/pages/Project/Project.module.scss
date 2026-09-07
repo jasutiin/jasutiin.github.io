@@ -76,9 +76,31 @@
 
 .content {
   line-height: 1.75;
-  transition-delay: 250ms;
   margin-top: 24px;
-  white-space: pre-line;
+  transition-delay: 250ms;
+}
+
+.contentParagraph + .contentParagraph {
+  margin-top: 20px;
+}
+
+.contentFigure {
+  margin: 28px 0;
+}
+
+.contentImage {
+  border-radius: 10px;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.imageCaption {
+  color: variables.$text-muted;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .resources {
