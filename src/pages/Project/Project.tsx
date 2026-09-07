@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { FaGithub } from 'react-icons/fa6';
+import { FaGithub, FaLink } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
 
 import {
@@ -7,6 +7,16 @@ import {
   type SanityProject,
 } from '../../sanity/projects';
 import styles from './Project.module.scss';
+
+const dateFormatter = new Intl.DateTimeFormat('en-CA', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+function formatDate(date: string) {
+  return dateFormatter.format(new Date(date));
+}
 
 function Project() {
   const { slug } = useParams();
@@ -130,6 +140,12 @@ function Project() {
             {project.description}
           </p>
         )}
+        <p
+          className={`${styles.projectDate} ${styles.hiddenItemX}`}
+          data-project-animate
+        >
+          {formatDate(project.publishedAt)}
+        </p>
         {project.cardImageUrl && (
           <img
             className={`${styles.image} ${styles.hiddenItemX}`}
@@ -145,6 +161,37 @@ function Project() {
           >
             {project.content}
           </p>
+        )}
+        {project.resources && project.resources.length > 0 && (
+          <footer className={styles.resources}>
+            <h2 className={styles.hiddenItemX} data-project-animate>
+              Other cool resources
+            </h2>
+            <ul className={styles.resourceList}>
+              {project.resources.map((resource) => (
+                <li
+                  className={`${styles.resource} ${styles.hiddenItemX}`}
+                  data-project-animate
+                  key={resource._key}
+                >
+                  {resource.url ? (
+                    <a
+                      className={styles.resourceLink}
+                      href={resource.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {resource.title}
+                      <FaLink aria-hidden="true" size={14} />
+                    </a>
+                  ) : (
+                    <span className={styles.resourceTitle}>{resource.title}</span>
+                  )}
+                  {resource.description && <p>{resource.description}</p>}
+                </li>
+              ))}
+            </ul>
+          </footer>
         )}
       </article>
     </main>

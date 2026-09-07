@@ -57,9 +57,16 @@
   line-height: 1.65;
 }
 
+.projectDate {
+  color: variables.$text-muted;
+  font-size: 0.85rem;
+  margin-top: 14px;
+  transition-delay: 150ms;
+}
+
 .image {
   border-radius: 10px;
-  transition-delay: 150ms;
+  transition-delay: 200ms;
   display: block;
   margin-top: 24px;
   max-height: 440px;
@@ -69,9 +76,54 @@
 
 .content {
   line-height: 1.75;
-  transition-delay: 200ms;
+  transition-delay: 250ms;
   margin-top: 24px;
   white-space: pre-line;
 }
 
+.resources {
+  border-top: 1px solid variables.$border;
+  margin-top: 48px;
+  padding-top: 28px;
+}
+
+.resources h2,
+.resource {
+  transition-delay: 300ms;
+}
+
+.resourceList {
+  display: grid;
+  gap: 20px;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.resource {
+  line-height: 1.6;
+}
+
+.resourceLink {
+  align-items: center;
+  color: variables.$accent;
+  display: inline-flex;
+  font-weight: 600;
+  gap: 8px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: variables.$text;
+  }
+}
+
+.resourceTitle {
+  color: variables.$text;
+  font-weight: 600;
+}
+
+.resource p {
+  color: variables.$text-muted;
+  margin-top: 4px;
+}
 

@@ -2,6 +2,13 @@ import { defineQuery } from 'groq';
 
 import { sanityClient } from './client';
 
+export interface ProjectResource {
+  _key: string;
+  title: string;
+  url?: string;
+  description?: string;
+}
+
 export interface SanityProject {
   _id: string;
   title: string;
@@ -10,27 +17,46 @@ export interface SanityProject {
   content?: string;
   githubUrl?: string;
   cardImageUrl?: string;
+  publishedAt: string;
+  resources?: ProjectResource[];
 }
 
-const projectFields = /* groq */ `
+const projectSummaryFields = /* groq */ `
   _id,
   title,
   "slug": slug.current,
   description,
-  "content": pt::text(content),
   "githubUrl": coalesce(githubUrl, github, githubLink),
-  "cardImageUrl": cardImage.asset->url
+  "cardImageUrl": cardImage.asset->url,
+  publishedAt
+`;
+
+const projectDetailFields = /* groq */ `
+  ${projectSummaryFields},
+  "content": pt::text(content),
+  "resources": coalesce(footerLinks, resources, furtherReading)[] {
+    _key,
+    title,
+    url,
+    description
+  }
 `;
 
 const projectsQuery = defineQuery(/* groq */ `
   *[_type == "project"] | order(_createdAt desc) {
-    ${projectFields}
+    ${projectSummaryFields}
   }
 `);
 
 const projectBySlugQuery = defineQuery(/* groq */ `
   *[_type == "project" && slug.current == $slug][0] {
-    ${projectFields}
+    ${projectDetailFields}
+  }
+`);
+
+const projectDetailsQuery = defineQuery(/* groq */ `
+  *[_type == "project"] {
+    ${projectDetailFields}
   }
 `);
 
@@ -59,6 +85,8 @@ export async function getProjectBySlug(slug: string) {
     return project;
   }
 
-  const projects = await getProjects();
+  const projects = await sanityClient.fetch<SanityProject[]>(
+    projectDetailsQuery
+  );
   return projects.find((item) => getProjectSlug(item) === slug) ?? null;
 }
